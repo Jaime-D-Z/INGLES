@@ -195,7 +195,7 @@ const questions = [
       {
         text: "do",
         isCorrect: false,
-        rationale:
+        rationinge:
           "Se necesita el Verbo To Be ('is'), no el auxiliar 'do' del Presente Simple.",
       },
       {
@@ -464,16 +464,22 @@ function showResults() {
   }
 
   quizContent.innerHTML = `
-		<div class="results-container" style="text-align: center; padding: 40px;">
-			<h2 style="color: #5B9CC7;">Quiz Terminado - ¡Resultados!</h2>
-			<p style="font-size: 1.2rem;">Tu puntaje final es: <strong>${finalScore} de ${totalQuestions}</strong></p>
-			<p style="font-size: 2rem; font-weight: 700; color: #5B9CC7;">${percentage}%</p>
-			
-			${specialMessage || `<p>${message}</p>`} 
-			
-			<p style="margin-top: 20px;">**Keep learning, you're doing great!**</p>
-			<button class="next-button" onclick="window.location.reload()">Empezar de Nuevo</button>
-		</div>
-	`;
+        <div class="results-container" style="text-align: center; padding: 40px;">
+            <h2 style="color: #5B9CC7;">Quiz Terminado - ¡Resultados!</h2>
+            <p style="font-size: 1.2rem;">Tu puntaje final es: <strong>${finalScore} de ${totalQuestions}</strong></p>
+            <p style="font-size: 2rem; font-weight: 700; color: #5B9CC7;">${percentage}%</p>
+            
+            ${specialMessage || `<p>${message}</p>`} 
+            
+            <p style="margin-top: 20px;">**Keep learning, you're doing great!**</p>
+            <button class="next-button" onclick="window.location.reload()">Empezar de Nuevo</button>
+        </div>
+    `;
   progressBar.textContent = "¡Completado!";
 }
+
+// Event listener para el botón Siguiente
+nextButton.addEventListener("click", nextQuestion);
+
+// Iniciar el quiz
+window.onload = loadQuestion;
